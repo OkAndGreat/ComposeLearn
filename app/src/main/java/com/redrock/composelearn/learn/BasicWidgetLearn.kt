@@ -12,7 +12,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -54,6 +53,7 @@ fun BasicWidget() {
 
         @SuppressLint("UnrememberedMutableState")
         val mutableList = mutableStateListOf("1", "2", "3", "4", "1", "2", "3", "4")
+        val mutableListRemember = remember {  mutableStateListOf("1", "2", "3", "4", "1", "2", "3", "4") }
 
 
         LazyRow(Modifier.height(50.dp)) {

@@ -1,5 +1,6 @@
 package com.redrock.composelearn.learn
 
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import kotlinx.coroutines.GlobalScope
@@ -11,15 +12,15 @@ import kotlinx.coroutines.launch
  * Date on 2022/11/19 15:54.
  *  Composition scope & remember() Learn
  */
-const val TAG = "Remember"
-
 
 @Composable
 fun rememberLearn() {
 
     var name by remember { mutableStateOf("okandgreat") }
 
-    Text(name)
+    Button(onClick = {}) {
+        Text(name)
+    }
 
     GlobalScope.launch {
         delay(2000)
@@ -27,6 +28,7 @@ fun rememberLearn() {
     }
 }
 
+@Composable
 fun rememberWithParam(value: String) {
     val lengthWithoutLength = value.length
     val lengthWithLength = remember(value.hashCode()) { value.length }
