@@ -15,39 +15,50 @@ import androidx.compose.ui.Modifier
 
 private const val TAG = "Remember"
 
-private val mName = mutableStateOf("s okandgreat")
-
 @Composable
 fun ReComposeScopeLearn() {
 
     var name by remember { mutableStateOf("okandgreat") }
 
+
     Log.d(TAG, "ReComposeScopeLearn: 1")
+
+    var user1 = User("")
+    var user2 = User("")
+    var user = User("okandgreat")
 
     Column {
         Log.d(TAG, "ReComposeScopeLearn: 2")
         Text(name, Modifier.clickable {
             name = "greatandok"
         })
-        scope1()
-        scope2(name)
+        Scope1()
+        Scope2(name)
+        Scope3(user)
     }
 }
 
 @Composable
-fun scope1() {
+fun Scope1() {
     Text("scope1")
     Log.d(TAG, "ReComposeScopeLearn: 3")
 }
 
 @Composable
-fun scope2(name: String) {
-    Text("scope1 $name")
+fun Scope2(name: String) {
+    Text("scope2 $name")
     Log.d(TAG, "ReComposeScopeLearn: 4")
 }
 
 @Composable
-fun scope3(name: String) {
-
+fun Scope3(user: User) {
+    Text("scope3 ${user.name}")
+    Log.d(TAG, "ReComposeScopeLearn: 5")
 }
 
+//class User(name: String) {
+//    val name by mutableStateOf(name)
+//}
+
+@Immutable
+class User(var name: String) {}

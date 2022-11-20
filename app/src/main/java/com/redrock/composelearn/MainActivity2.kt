@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.Text
 import com.redrock.composelearn.learn.BasicWidget
 import com.redrock.composelearn.learn.ReComposeScopeLearn
+import com.redrock.composelearn.learn.derivedState
 import com.redrock.composelearn.learn.rememberLearn
 import com.redrock.composelearn.ui.theme.ComposeLearnTheme
 
@@ -17,7 +18,8 @@ class MainActivity2 : ComponentActivity(){
             ComposeLearnTheme {
 //                BasicWidget()
 //                rememberLearn()
-                ReComposeScopeLearn()
+//                ReComposeScopeLearn()
+                derivedState()
             }
         }
     }
