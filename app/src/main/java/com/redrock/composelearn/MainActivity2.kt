@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import com.redrock.composelearn.learn.*
+import com.redrock.composelearn.learn.animate.AnimateAsState
 import com.redrock.composelearn.ui.theme.ComposeLearnTheme
 
 class MainActivity2 : ComponentActivity(){
@@ -20,7 +21,8 @@ class MainActivity2 : ComponentActivity(){
 //                rememberLearn()
 //                ReComposeScopeLearn()
 //                DerivedState()
-                compositionLocal()
+//                compositionLocal()
+                AnimateAsState()
             }
         }
     }
