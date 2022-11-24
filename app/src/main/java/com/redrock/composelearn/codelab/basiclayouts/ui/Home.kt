@@ -27,7 +27,6 @@ fun HomeSection(
     Column(modifier) {
         Text(
             text = stringResource(title).uppercase(Locale.getDefault()),
-            style = MaterialTheme.typography.h2,
             modifier = Modifier
                 .paddingFromBaseline(top = 40.dp, bottom = 8.dp)
                 .padding(horizontal = 16.dp)

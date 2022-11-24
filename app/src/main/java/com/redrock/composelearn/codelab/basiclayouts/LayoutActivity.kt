@@ -1,12 +1,15 @@
 package com.redrock.composelearn.codelab.basiclayouts
 
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.redrock.composelearn.BaseComposeActivity
+import androidx.compose.ui.graphics.Color
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.redrock.composelearn.codelab.basiclayouts.ui.HomeScreen
 import com.redrock.composelearn.codelab.basiclayouts.ui.SootheBottomNavigation
 import com.redrock.composelearn.ui.theme.ComposeLearnTheme
@@ -16,15 +19,25 @@ import com.redrock.composelearn.ui.theme.ComposeLearnTheme
  * Date on 2022/11/24 11:07.
  *
  */
-class LayoutActivity : BaseComposeActivity() {
+class LayoutActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { myApp() }
+        setContent {
+            //修改状态栏
+            //需要导库
+            //implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
+            val systemUiController = rememberSystemUiController()
+            systemUiController.setStatusBarColor(
+                Color.Transparent, darkIcons = MaterialTheme.colors.isLight
+            )
+
+            MyApp()
+        }
     }
 
     @Composable
-    fun myApp() {
+    fun MyApp() {
         ComposeLearnTheme {
             Scaffold(bottomBar = { SootheBottomNavigation() }) { paddingValues ->
                 HomeScreen(Modifier.padding(paddingValues))

@@ -42,7 +42,6 @@ fun AlignYourBodyElement(
         )
         Text(
             text = stringResource(text),
-            style = MaterialTheme.typography.h3,
             modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp)
         )
     }

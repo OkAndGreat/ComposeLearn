@@ -40,9 +40,9 @@ fun RealContentScreen(
 ) {
     LazyColumn(modifier = Modifier.padding(4.dp)) {
         itemsIndexed(names) { index, item ->
-            Card(shape = RoundedCornerShape(10.dp)) {
+            Card(shape = RoundedCornerShape(10.dp), modifier = Modifier.padding(12.dp)) {
                 CardWidget(
-                    Modifier.padding(12.dp).background(MaterialTheme.colors.primary),
+                    Modifier.background(MaterialTheme.colors.primary),
                     names[index].expanded,
                     onIconClicked = { onItemClicked(index, names) },
                     names[index].name

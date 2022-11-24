@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.redrock.composelearn'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.redrock.composelearn"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -57,7 +57,7 @@ android {
  * 今后，Compose 库将单独进行版本控制，这意味着版本号将开始按照自己的节奏递增。
  * 每个库的最新稳定版本已经过测试，并保证能够很好地协同工作。
  * 不过，找到每个库的最新稳定版本可能比较困难，而 BoM 会帮助您自动使用这些最新版本。
- * @see https://developer.android.com/jetpack/compose/setup?hl=zh-cn#using-the-bom
+ * https://developer.android.com/jetpack/compose/setup?hl=zh-cn#using-the-bom
  */
 dependencies {
 
@@ -70,6 +70,8 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended"
     implementation "androidx.compose.ui:ui-tooling-preview"
     debugImplementation "androidx.compose.ui:ui-tooling"
+    implementation "androidx.compose.runtime:runtime-livedata"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
@@ -81,6 +83,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.18.0"
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
 }

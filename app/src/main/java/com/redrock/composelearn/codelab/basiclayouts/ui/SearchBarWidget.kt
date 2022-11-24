@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun SearchBarStatefulWidget( modifier: Modifier = Modifier) {
     //使用viewmodel更好
+    //使用rememberSaveable相比较与remember可以在旋转屏幕时保存数据
     val searchBarText = rememberSaveable { mutableStateOf("") }
     SearchBarStatelessWidget(modifier,onValueChange = { searchBarText.value = it }, value = searchBarText.value)
 }
