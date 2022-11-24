@@ -1,4 +1,4 @@
-package com.redrock.composelearn.codelab.basiccodelab
+package com.redrock.composelearn.codelab.basiccodelab.ui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
@@ -42,12 +40,15 @@ fun RealContentScreen(
 ) {
     LazyColumn(modifier = Modifier.padding(4.dp)) {
         itemsIndexed(names) { index, item ->
-            CardWidget(
-                Modifier.padding(12.dp).background(MaterialTheme.colors.primary),
-                names[index].expanded,
-                onIconClicked = { onItemClicked(index, names) },
-                names[index].name
-            )
+            Card(shape = RoundedCornerShape(10.dp)) {
+                CardWidget(
+                    Modifier.padding(12.dp).background(MaterialTheme.colors.primary),
+                    names[index].expanded,
+                    onIconClicked = { onItemClicked(index, names) },
+                    names[index].name
+                )
+            }
+
         }
     }
 }
