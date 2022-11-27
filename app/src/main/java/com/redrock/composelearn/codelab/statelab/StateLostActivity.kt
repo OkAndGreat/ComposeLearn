@@ -43,7 +43,6 @@ class StateLostActivity : ComponentActivity() {
         WaterCounter(modifier)
     }
 
-
     /**
      * 优秀实践是为所有可组合函数提供默认的 Modifier，从而提高可重用性。
      * 它应作为第一个可选参数显示在参数列表中，位于所有必需参数之后。
@@ -53,7 +52,6 @@ class StateLostActivity : ComponentActivity() {
         Column(modifier = modifier.padding(16.dp)) {
             var count by remember { mutableStateOf(0) }
             if (count > 0) {
-
                 val showTask = viewModel.showTask
                 if (showTask) {
                     WellnessTaskItem(
