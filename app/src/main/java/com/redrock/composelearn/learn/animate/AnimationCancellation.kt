@@ -9,12 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.delay
 
 /**
  * Author by OkAndGreat
@@ -24,18 +24,25 @@ import kotlinx.coroutines.delay
 @Composable
 fun AnimationCancellation() {
     val anim = remember { Animatable(0.dp, Dp.VectorConverter) }
-    var padding = 0.dp
+    anim.updateBounds(0.dp, 100.dp)
+    val padding = remember { mutableStateOf(0.dp) }
     val decay = rememberSplineBasedDecay<Dp>()
     LaunchedEffect(Unit) {
-        delay(1000)
-        anim.animateDecay(1000.dp, decay) {
-            padding = value
+//        delay(1000)
+        anim.animateDecay(2000.dp, decay) {
+            padding.value = value
         }
     }
 
+
+//    LaunchedEffect(Unit) {
+//        delay(1100)
+//        anim.stop()
+//    }
+
     Box(
         Modifier
-            .padding(0.dp, anim.value, 0.dp, 0.dp)
+            .padding(0.dp, padding.value, 0.dp, 0.dp)
             .size(100.dp)
             .background(Color.Green)
     )
