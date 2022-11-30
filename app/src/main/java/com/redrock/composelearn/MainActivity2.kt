@@ -1,13 +1,14 @@
 package com.redrock.composelearn
 
 import android.os.Bundle
-import android.view.animation.Animation
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.redrock.composelearn.learn.Transition.AnimatedVisibilityColumn
+import com.redrock.composelearn.learn.Transition.TransitionSquare
 import com.redrock.composelearn.learn.animate.*
 import com.redrock.composelearn.ui.theme.ComposeLearnTheme
 
-class MainActivity2 : ComponentActivity(){
+class MainActivity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +24,9 @@ class MainActivity2 : ComponentActivity(){
 //                KeyframeSpecLearn()
 //                SpringSpecLearn()
 //                RepeatableSpecLearn()
-                AnimationCancellation()
+//                AnimationCancellation()
+//                TransitionSquare()
+                AnimatedVisibilityColumn()
             }
         }
     }
