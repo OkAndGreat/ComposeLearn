@@ -16,7 +16,7 @@ import com.redrock.composelearn.R
  */
 
 @Composable
- fun SootheBottomNavigation(modifier: Modifier = Modifier) {
+fun SootheBottomNavigation(modifier: Modifier = Modifier, select: Int, onBottomItemClicked: (Int) -> Unit) {
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.background,
         modifier = modifier
@@ -31,8 +31,10 @@ import com.redrock.composelearn.R
             label = {
                 Text(stringResource(R.string.bottom_navigation_home))
             },
-            selected = true,
-            onClick = {}
+            selected = select == 0,
+            onClick = {
+                onBottomItemClicked(0)
+            }
         )
         BottomNavigationItem(
             icon = {
@@ -44,8 +46,10 @@ import com.redrock.composelearn.R
             label = {
                 Text(stringResource(R.string.bottom_navigation_profile))
             },
-            selected = false,
-            onClick = {}
+            selected = select == 1,
+            onClick = {
+                onBottomItemClicked(1)
+            }
         )
     }
 }

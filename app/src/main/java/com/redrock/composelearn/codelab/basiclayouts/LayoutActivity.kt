@@ -9,6 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.redrock.composelearn.codelab.basiclayouts.ui.HomeScreen
 import com.redrock.composelearn.codelab.basiclayouts.ui.SootheBottomNavigation
@@ -20,6 +21,8 @@ import com.redrock.composelearn.ui.theme.ComposeLearnTheme
  *
  */
 class LayoutActivity : ComponentActivity() {
+
+    private lateinit var bottomViewModel: BottomViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,13 @@ class LayoutActivity : ComponentActivity() {
     @Composable
     fun MyApp() {
         ComposeLearnTheme {
-            Scaffold(bottomBar = { SootheBottomNavigation() }) { paddingValues ->
+            bottomViewModel = viewModel()
+            Scaffold(bottomBar = {
+                SootheBottomNavigation(select = bottomViewModel.bottomSelected.value, onBottomItemClicked =
+                {
+                bottomViewModel.bottomSelected.value = it
+                })
+            }) { paddingValues ->
                 HomeScreen(Modifier.padding(paddingValues))
             }
         }
