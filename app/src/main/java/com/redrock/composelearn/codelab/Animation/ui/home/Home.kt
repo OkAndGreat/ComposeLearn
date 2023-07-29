@@ -252,6 +252,13 @@ fun Home() {
                     }
                 }
             }
+            /**
+             * 在Compose中，key函数用于为Compose中的元素分配一个唯一的标识符。这个标识符可以帮助Compose在更新UI时识别哪些元素已经改变，哪些元素需要重新渲染。
+             *
+             * 在上面的代码中，key函数用于为TaskRow元素分配一个唯一的标识符。这个标识符是由task对象的值生成的，因为每个task对象都是唯一的。这样，当tasks列表中的某个任务被删除时，Compose可以识别哪个元素需要被删除，并且不会重新渲染其他元素。
+             *
+             * 如果没有为Compose中的元素分配唯一的标识符，Compose将无法识别哪些元素已经改变，哪些元素需要重新渲染。这可能会导致UI更新不正确或性能下降。因此，在Compose中，为每个元素分配唯一的标识符是非常重要的。
+             */
             items(count = tasks.size) { i ->
                 val task = tasks.getOrNull(i)
                 if (task != null) {
